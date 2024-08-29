@@ -1,0 +1,106 @@
+<!-- you can  access html locally from the machine but in real life it is deployed/posted inside the application which will
+ deployed and running inside web server.web server will be running on some machine  
+ 
+ When you will start web server, every web application deployed inside web server will also start running. And this running web
+ application can then be accessed through the browser or client side application program(React/Angular/HTML) running on 
+ client side via HTTP protocol
+
+ To access that web application and the webpage inside the web application, you will have to give the correct URL(Uniform 
+ Resource Locator)in the browser that identifies that resource / webpage / web application running inside the web server.
+
+ If that resource is secured resource, then you will have to provide the credential to access that resource.
+ -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <h1>Greeetings</h1>
+    <script>
+        function changePara()
+        {
+            document.getElementById('p1').innerHTML='<b>Welcome to html and js session!<b>'
+        }
+        function disable(event)
+        {
+            event.preventDefault();
+            console.log(event);
+        }
+        function reload(event)
+        { 
+            event.preventDefault();
+            location.reload();
+           
+        }
+
+        function add(event)
+        {
+            event.preventDefault();
+            console.log('inside add method');
+            
+            let no1= document.getElementsByName("no1")[0].value;
+            //alert(no1);
+            let no2= document.getElementsByName("no2")[0].value;
+            console.log("no1="+no1,"no2="+no2);
+            alert(no1+','+no2);
+            
+           if(no1!='' && no2!='')
+           {
+            let sum=parseInt(no1)+parseInt(no2);
+            console.log(sum);
+            document.getElementById("p1").innerHTML = sum;
+           }
+        //    else
+        //    {
+        //     alert("no1 or no2 fields can't be empty");
+            document.getElementsByTagName('input')[2].disabled=true;
+        //    }
+        }
+    </script>
+  </head>
+  <body>
+    
+    
+   <!-- <a href="http://www.w3school.com">w3school</a>-->
+    
+   <a onclick="disable(event)" href="http://www.w3school.com">W3 School</a>
+    <div>
+        <form onsubmit="add(event)">
+            <input type="number" name="no1" value="10" placeholder="enter no1"/><br/>
+            <input type="number" name="no2" value="20" placeholder="enter no2"/><br/>
+            <input type="submit" value="ADD"/>
+            <button onclick="reload()" >Reload</button>
+        </form>
+    </div>
+    <div>
+      <p>Hello Everyone</p>
+      <hr />
+
+      <table>
+        <thead>
+          <tr>
+            <th>Empid</th>
+            <th>EmpName</th>
+            <th>Empsal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Ram</td>
+            <td>50000</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Shyam</td>
+            <td>80000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button onclick="changePara()" id="b1">change Paragraph content</button><br/>
+    <!-- <script>
+        let no=5;
+        document.
+    </script> -->
+  </body>
+</html>

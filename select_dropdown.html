@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- <script>
+          function myfunc(){
+            alert('myfun called');
+            var val=document.getElementById("Sell").value;
+            alert(val);
+            document.getElementsByTagName('p')[1].innerHTML=" You Selected: "+val;
+        }
+        function func1()
+        {
+            document.getElementById("sell").style.backgroundColor="cyan";   
+        }
+        function func2()
+        {
+            document.getElementById("sell").style.backgroundColor="lightblue";   
+        }
+       </script> -->
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div
+      style="background: rgb(234, 149, 212); border: 2px solid rgb(10, 10, 42)"
+    >
+      <p>select a food item from List.</p>
+      <select
+        id="sell"
+        onchange="myfunc()"
+        onmouseover="func1()"
+        onmouseout="func2()"
+      >
+        <option value="Wadapav">Wadapav</option>
+        <option value="Pizza">Pizza</option>
+        <option value="Misal">Misal</option>
+        <option value="Burger">Burger</option>
+      </select>
+    </div>
+    <p is="itemchoice"></p>
+  </body>
+</html>

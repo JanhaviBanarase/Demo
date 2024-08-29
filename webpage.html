@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payroll Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            text-align: center;
+            margin-top:20 px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            margin: 0;
+            color: #050505;
+            background-color: #f2e8da;
+            padding: 1rem;
+        }
+
+        .header h2{
+            font-size: 1.8rem;
+            margin: 0;
+            color: #050505;
+            padding: 1rem;
+        }
+        .form-box {
+            display: inline-block;
+            border: 2px solid green;
+            padding: 2rem;
+            background-color: #fff;
+            margin-top: 20px;
+            text-align: justify;
+            width: auto;
+        }
+       
+        label {
+            display: inline-block;
+            width: 140px;
+            text-align: left;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"] {
+            width: 20rem;
+            padding: 1%;
+            margin-bottom: 1rem;
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 15px;
+        }
+        button {
+            padding: 8px 15px;
+            margin: 5px 10px;
+           
+        }
+        #contract{
+            align-content: left;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Payroll Management System</h1>
+            <h2>Employee Enrollment</h2>
+        </div>
+        <div class="form-box">
+            <form id="enrollmentForm">
+                <div>
+                    <label for="name">Name of Employee:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="mobile">Mobile:</label>
+                    <input type="tel" id="mobile" name="mobile" required 
+                           pattern="[679]\d{9}" title="Mobile number should start with 6, 7, or 9 and be 10 digits long.">
+                </div>
+                <div>
+                    <label for="company">Company Name:</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div>
+                    <label for="doj">Date of Join:</label>
+                    <input type="date" id="doj" name="doj" required>
+                </div>
+                
+                <div class="radio-group">
+                    <label>Enrollment Type:</label>
+                    <input type="radio" id="permanent" name="type" value="Permanent" required>
+                    <label for="permanent">Permanent</label>
+                    <input type="radio" id="contract" name="type" value="Contract">
+                    <label for="contract">Contract</label>
+                </div>
+                <div class="buttons">
+                    <button type="reset">Cancel</button>
+                    <button type="submit">Enroll</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('enrollmentForm');
+
+        form.addEventListener('submit', (event) => {
+            // Custom validation logic
+            const name = document.getElementById('name').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const company = document.getElementById('company').value.trim();
+            const doj = document.getElementById('doj').value;
+            const type = document.querySelector('input[name="type"]:checked');
+
+            if (!name || !mobile || !company || !doj || !type) {
+                alert('Please fill out all fields.');
+                event.preventDefault();
+                return;
+            }
+
+            if (!/^[679]\d{9}$/.test(mobile)) {
+                alert('Please enter a valid 10-digit mobile number starting with 6, 7, or 9.');
+                event.preventDefault();
+                return;
+            }
+
+            alert('Form submitted successfully!');
+        });
+    </script>
+</body>
+</html>

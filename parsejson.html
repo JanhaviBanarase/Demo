@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p id="demo"></p>
+        <script>
+            let empjson='{"id":1,"firstName":"Janhavi", "lastName": "Banarase","salary":5000}';
+            const obj=JSON.parse(empjson);
+            document.getElementById("demo").innerHTML = obj.firstName;
+        </script>
+    </body>
+</html>
+
+<!--fetch Api in js allows u to make asynchronus calls i.e asyn call that is ajax calls using fetch API u can send 
+asynchronus GET and POST requests and all other HTTP request as well-->
+<!--fetch API is promised based-->
